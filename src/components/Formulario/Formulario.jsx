@@ -5,7 +5,7 @@ import { collection, addDoc } from "firebase/firestore";
 import db from "../../database/firebaseConfig";
 
 
-const Formulario = ({ campos }) => {
+const Formulario = ({ campos, bancoDeDados }) => {
     const [dados, setDados] = useState({});
 
     const alteraDados = (e) => {
@@ -17,7 +17,7 @@ const Formulario = ({ campos }) => {
     const salvarDados = async (e) => {
         e.preventDefault(); // prevenindo o evento padrao
         console.log(dados);
-        const docRef = await addDoc(collection(db, "comentarios"), dados);
+        const docRef = await addDoc(collection(db, bancoDeDados), dados);
 
     };
 
